@@ -8,7 +8,6 @@ app = 'INTEGRATOR' && "finished with status"
 | parse '\\| $datetime$\\.\\d+'
 | group Total_events= count() , Total_uploads = sum(UploadCount), latestEvent = newest(datetime) by integration_id  , integration_name , CustomerStatus ,OrgUnitName , CustomerName , data_center 
 | columns CustomerName , integration_name , integration_id , OrgUnitName , CustomerStatus , Total_uploads , Total_events  , data_center , latestEvent 
-| filter Total_uploads > 0
 | sort CustomerName 
 
 
